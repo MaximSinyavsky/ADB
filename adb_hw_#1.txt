@@ -1,0 +1,28 @@
+ADB home work № 1
+
+Precondition:
+1. Перейти в репазиторий ADB;
+2. Нажать сочетание кнопок [left shift] + [right maus button];
+3. В окне [Windows PowerShell] ввести следующие команды:
+
+Task:
+ 1. Отобразить подключенный девайс в консоли:
+.\adb devices
+
+ 2. Вывести адрес приложения todolist в системе Android:
+.\adb shell pm list packages -f | findstr todolist
+
+ 3. Установить .apk файл приложения todolist на телефон с компьютера через  ADB:
+ .\adb install D:\IT\platform-tools-latest-windows\001_ToDoList-master\app\build\outputs\apk\debug\app-debug.apk
+
+ 4. Сделать скриншот запущенного приложения todolist и сразу скопировать на компьютер в одной команде:
+.\adb shell screencap /storage/emulated/0/DCIM/Screenshot.png ;.\adb pull /storage/emulated/0/DCIM/Screenshot.png screenshot.png
+
+ 5. Вывести в консоль логи приложения todolist:
+.\adb logcat -d | findstr com.android.todolist
+
+ 6. Скопировать логи приложения todolist на компьютер:
+.\adb logcat -d | findstr com.android.todolist >todolist.log
+
+ 7. Удалить приложение todolist с телефона через ADB:
+.\adb uninstall com.android.todolist
